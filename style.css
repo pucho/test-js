@@ -1,1 +1,6 @@
 /* CSS files add styling rules to your content */
+.answers {
+  &.is-invalid {
+    background-color: red;
+  }
+}

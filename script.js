@@ -16,7 +16,7 @@ const buildQuiz = (questions) => {
       // create radio input to store the response
       answers.push(`
         <div class="form-check">
-          <input type="radio" class="form-check-input" value="${answerValue}" name="question${questionNumber}" id="answer${answerValue}">
+          <input type="radio" class="form-check-input" value="${answerKey}" name="question${questionNumber}" id="answer${answerValue}">
           <label class="form-check-label" for="answer${answerValue}">
             ${answerKey}: ${answerValue}
           </label>
@@ -39,24 +39,33 @@ const buildQuiz = (questions) => {
 }
 
 const checkResults = (e, questions) => {
-  console.log("Checking results...")
   e.preventDefault();
+  
+  const formData = new FormData(e.target);
   
   const quizAnswers = document.querySelectorAll(".answers");
   
+  // remove
+  const answersRadios = answers.querySelectorAll(`input[name="question${questionNumber}"]`);
+  
   questions.forEach((currentQuestion, questionNumber) => {
     // find selected answers
-    const answersContainer = quizAnswers[questionNumber]
-    console.log("answersContainer", answersContainer)
-    const selector = `input[name="question${questionNumber}"]:checked`;
-    const answerValue = (answersContainer.querySelector(selector) || {}).value;
-    console.log("answerValue", answerValue)
+    const answerValue = formData.get(`question${questionNumber}`);
+    const isCorrect = answerValue === currentQuestion.correctAnswer;
     
-    const isCorrect = answerValue ===  currentQuestion.correctAnswer;
+    const answers = quizAnswers[questionNumber];
     
-    console.log("isCorrect", isCorrect);
-    
-    answersContainer.toggleClass("is-invalid", !isCorrect);
+    if (isCorrect) {
+      const checkedRadio = answers.querySelector(`input[name="question${questionNumber}"]:checked`);
+      checkedRadio.classList.remove("is-invalid");
+      checkedRadio.classList.add("is-success");
+    } else {
+      const answersRadios = answers.querySelectorAll(`input[name="question${questionNumber}"]`);
+      answersRadios.forEach((answersRadio) => {
+        answersRadio.classList.add("is-invalid");
+        answersRadio.classList.remove("is-success");
+      })
+    }
   })
 }
 
