@@ -1,10 +1,39 @@
+const quizForm = document.getElementById("quiz");
+const questionsWrapper = document.getElementById("questions");
+
 const buildQuiz = (questions) => {
-  console.log("questions", questions)
+  const output = [];
   
-  const question
-  questions.forEach((question) => {
+  let answerValue;
+  questions.forEach((currentQuestion, questionNumber) => {
+    const answers = [];
+
+    Object.keys(currentQuestion.answers).forEach((answerKey) => {
+      answerValue = currentQuestion.answers[answerKey];
+      
+      answers.push(`
+        <div class="form-check">
+          <input type="radio" class="form-check-input" value="${answerValue}" name="question${questionNumber}" id="answer${answerValue}" required>
+          <label class="form-check-label" for="answer${answerValue}">
+            ${answerKey}: ${answerValue}
+          </label>
+        </div>
+      `);
+    })
     
+    output.push(`
+      <div class="mb-2">
+        <strong>${currentQuestion.question}</strong>
+        ${answers.join("")}
+      </div>
+    `);
   })
+  
+  questionsWrapper.innerHTML = output.join("");
+}
+
+const checkResults = () => {
+  console.log("Checking results...")
 }
 
 
@@ -40,3 +69,5 @@ const myQuestions = [
 ];
 
 buildQuiz(myQuestions);
+
+quizForm.addEventListener("submit", checkResults);

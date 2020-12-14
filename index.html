@@ -16,24 +16,24 @@
   </head>  
   <body>
     <div class="container">
-      <form id="questions_form" method="get" class="form mt-4">
+      <form id="quiz" method="get" class="form mt-4">
         <fieldset>
           <legend class="h1">Send your answers</legend>
           <div class="mb-3">
             <label for="username" class="form-label">Name</label>
-            <input type="text" class="form-control" id="username" maxlength="20" placeholder="" value="">
+            <input type="text" class="form-control" id="username" maxlength="20" placeholder="" value="" required>
           </div>
         </fieldset>
         <fieldset>
           <div class="mb-3">
             <label for="emailAddress" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="emailAddress" placeholder="" value="">
+            <input type="email" class="form-control" id="emailAddress" placeholder="" value="" required>
           </div>
         </fieldset>
         <fieldset>
           <div class="mb-3">
             <label for="emailAddress" class="form-label">Questions</label>
-            <div id="quiz">
+            <div id="questions">
             </div>
           </div>
         </fieldset>
