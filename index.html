@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Hello!</title>
+    <title>Quick Quiz!</title>
     
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="/style.css">
@@ -21,22 +21,18 @@
           <legend class="h1">Send your answers</legend>
           <div class="mb-3">
             <label for="username" class="form-label">Name</label>
-            <input type="text" class="form-control" id="username" maxlength="20" placeholder="" value="" required>
+            <input type="text" class="form-control" id="username" maxlength="20" placeholder="" value="test" required>
           </div>
         </fieldset>
         <fieldset>
           <div class="mb-3">
             <label for="emailAddress" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="emailAddress" placeholder="" value="" required>
+            <input type="email" class="form-control" id="emailAddress" placeholder="" value="test@test.com" required>
           </div>
         </fieldset>
-        <fieldset>
-          <div class="mb-3">
-            <label for="emailAddress" class="form-label">Questions</label>
-            <div id="questions">
-            </div>
-          </div>
-        </fieldset>
+        <legend class="h2">Questions</legend>
+        <div id="questions" class="mb-3">
+        </div>
         <div class="mb-3">
           <button type="submit" class="btn btn-primary">Send</button>
           <button type="reset" class="btn btn-secondary">Reset</button>
