@@ -1,5 +1,42 @@
-/* If you're feeling fancy you can add interactivity 
-    to your site with Javascript */
+const buildQuiz = (questions) => {
+  console.log("questions", questions)
+  
+  const question
+  questions.forEach((question) => {
+    
+  })
+}
 
-// prints "hi" in the browser's dev tools console
-console.log("hi");
+
+const myQuestions = [
+  {
+    question: "Who invented JavaScript?",
+    answers: {
+      a: "Douglas Crockford",
+      b: "Sheryl Sandberg",
+      c: "Brendan Eich"
+    },
+    correctAnswer: "c"
+  },
+  {
+    question: "Which one of these is a JavaScript package manager?",
+    answers: {
+      a: "Node.js",
+      b: "TypeScript",
+      c: "npm"
+    },
+    correctAnswer: "c"
+  },
+  {
+    question: "Which tool can you use to ensure code quality?",
+    answers: {
+      a: "Angular",
+      b: "jQuery",
+      c: "RequireJS",
+      d: "ESLint"
+    },
+    correctAnswer: "d"
+  }
+];
+
+buildQuiz(myQuestions);
