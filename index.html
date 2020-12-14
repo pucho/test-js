@@ -15,27 +15,27 @@
     <script src="/script.js" defer></script>
   </head>  
   <body>
-    <div class="container">
-      <form id="quiz" method="get" class="form mt-4">
+    <div>
+      <form id="quiz" method="get">
         <fieldset>
           <legend class="h1">Send your answers</legend>
-          <div class="mb-3">
-            <label for="username" class="form-label">Name</label>
-            <input type="text" class="form-control" id="username" maxlength="20" placeholder="" value="test" required>
+          <div>
+            <label for="username">Name</label>
+            <input id="username" maxlength="20" placeholder="" value="">
           </div>
         </fieldset>
         <fieldset>
-          <div class="mb-3">
-            <label for="emailAddress" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="emailAddress" placeholder="" value="test@test.com" required>
+          <div>
+            <label for="emailAddress">Email address</label>
+            <input id="emailAddress" placeholder="" value="">
           </div>
         </fieldset>
         <legend class="h2">Questions</legend>
-        <div id="questions" class="mb-3">
+        <div id="questions">
         </div>
-        <div class="mb-3">
-          <button type="submit" class="btn btn-primary">Send</button>
-          <button type="reset" class="btn btn-secondary">Reset</button>
+        <div>
+          <button type="button">Send</button>
+          <button type="button">Reset</button>
         </div>
       </form>
     </div>

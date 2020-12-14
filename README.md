@@ -1,37 +1,20 @@
-Welcome to Glitch
-=================
+# Frontend Quiz
 
-Click `Show` in the header to see your app live. Updates to your code will instantly deploy and update live.
+We'd like to create a new form to ask some questions to our frontend developers.
 
-**Glitch** is the friendly community where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
+- When a user is responding our quiz, we'd like to collect some data about him. The name and email address would be required.
+- We would like to have dynamic questions and answers. All answers will be required and the user should be able to select only once per question.
+- Build the new fields in the HTML, then write the css and js.
+- Add basic validation
+- Is there a security flaw?
+- Bonus track: Show if the answer is valid or invalid adding some styles after submit.
 
-Find out more [about Glitch](https://glitch.com/about).
+# Example Output
 
+Try to give similar style to this image:
 
-Your Project
-------------
+![Result](https://cdn.glitch.com/8da3eaab-7ad4-436a-9b12-f764f46c6877%2Fform.png?v=1607975785868)
 
-### ← README.md
+## Bonus track
 
-That's this file, where you can tell people what your cool website does and how you built it.
-
-### ← index.html
-
-Where you'll write the content of your website. 
-
-### ← style.css
-
-CSS files add styling rules to your content.
-
-### ← script.js
-
-If you're feeling fancy you can add interactivity to your site with JavaScript.
-
-### ← assets
-
-Drag in `assets`, like images or music, to add them to your project
-
-Made by [Glitch](https://glitch.com/)
--------------------
-
-\ ゜o゜)ノ
+![Result](https://cdn.glitch.com/8da3eaab-7ad4-436a-9b12-f764f46c6877%2Fform-submitted.png?v=1607975786305)
