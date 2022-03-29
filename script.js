@@ -28,3 +28,10 @@ const myQuestions = [
     correctAnswer: "d"
   }
 ];
+
+const contQuest = documente.getElementById('questions');
+
+myQuestions.forEach( ele => {
+  document.('')
+})
+
