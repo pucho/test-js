@@ -29,9 +29,18 @@ const myQuestions = [
   }
 ];
 
-const contQuest = documente.getElementById('questions');
+const contQuest = document.getElementById('questions');
+const ulCont = document.getElementById('questionsList');
+console.log('test');
 
 myQuestions.forEach( ele => {
-  document.('')
+  const liElem = document.createElement('li');
+  const selectElem = document.createElement('span');
+  const contTitle = document.createTextNode(ele.question);
+  selectElem.appendChild(contTitle);
+  liElem.appendChild(selectElem);
+  ulCont.appendChild(contTitle);
 })
+
+
 
