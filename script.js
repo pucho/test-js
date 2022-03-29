@@ -78,6 +78,8 @@ function sendForm() {
   
   // Get answer validation
   answerValidation(formElem);
+  
+  // Always return false for test 
   return false;
   
 }

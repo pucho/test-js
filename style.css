@@ -1,13 +1,24 @@
 /* CSS files add styling rules to your content */
 #quiz {
-  width: 50%;
+  width: 600px;
+  padding: 25px;
 }
+
+#quiz fieldset {
+  margin-bottom: 10px;
+}
+
 
 .h1,
 .h2 {
   font-weight: bold;
-  margin-top: 25px
+  
 }
+
+.h2 {
+  margin-top: 15px
+}
+
 
 #questionsList {
   list-style: none;
