@@ -46,6 +46,7 @@ myQuestions.forEach( (ele, index) => {
     const contInput = document.createElement('input');
     contInput.setAttribute("type", "radio");
     contInput.setAttribute("name", `group${index}`);
+    contInput.setAttribute("value", '');
     const contText = document.createElement('label');
     const text = document.createTextNode(ele.answers[property]);
     contText.appendChild(text);
@@ -57,6 +58,7 @@ myQuestions.forEach( (ele, index) => {
 })
 
 function sendForm(event) {
+  const formElem = document.forms.
   console.log(event.target);
   // console.log(document.querySelector('quiz').value);
 }
