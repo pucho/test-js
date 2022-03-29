@@ -41,7 +41,7 @@ myQuestions.forEach( (ele, index) => {
   liElem.appendChild(selectElem);
   ulCont.appendChild(liElem);
   
-  // Loop on answers object
+  // Get answers object value
   for (const property in ele.answers) {
     const contOption = document.createElement('div');
     const contInput = document.createElement('input');
@@ -52,6 +52,7 @@ myQuestions.forEach( (ele, index) => {
     contInput.setAttribute("type", "radio");
     contInput.setAttribute("name", `group${index}`);
     contInput.setAttribute("value", property);
+    contInput.setAttribute("required", true);
     contInput.setAttribute("id", `group${index}-${property}`);
     contText.setAttribute("for", `group${index}-${property}`);
     
@@ -65,7 +66,18 @@ myQuestions.forEach( (ele, index) => {
 // Get Form values on submit
 function sendForm() {
   const formElem = document.forms.quiz;
+  
+  // Get User data
+  const userData = {
+    userName: formElem.elements.username.value,
+    email: formElem.elements.emailAddress.value
+  };
+  
+  // 
+  
   console.log(formElem.elements.username.value);
+  console.log(formElem.elements.group0.value);
+    
   return false;
   
 }

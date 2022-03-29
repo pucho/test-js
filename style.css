@@ -1,1 +1,5 @@
 /* CSS files add styling rules to your content */
+input {
+  margin-right: 10px
+}
+
