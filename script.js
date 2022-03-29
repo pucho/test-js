@@ -37,9 +37,24 @@ myQuestions.forEach( ele => {
   const liElem = document.createElement('li');
   const selectElem = document.createElement('span');
   const contTitle = document.createTextNode(ele.question);
+  const contInput = document.createElement('input');
+  // ele.answers.forEach( answer => {
+  //   // contInput.setAttribute("type", "radio");
+  //   // contInput.setAttribute("name", "answer");  
+  // })
+  for (const property in ele.answers) {
+    const contInput = document.createElement('input');
+    contInput.setAttribute("type", "radio");
+    contInput.setAttribute("name", "answer"); 
+    // console.log(`${property}`);
+  }
+
+  
+  
+  
   selectElem.appendChild(contTitle);
   liElem.appendChild(selectElem);
-  ulCont.appendChild(contTitle);
+  ulCont.appendChild(liElem);
 })
 
 
