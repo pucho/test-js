@@ -33,7 +33,7 @@ const contQuest = document.getElementById('questions');
 const ulCont = document.getElementById('questionsList');
 console.log('test');
 
-myQuestions.forEach( ele => {
+myQuestions.forEach( (ele, index) => {
   const liElem = document.createElement('li');
   const selectElem = document.createElement('span');
   const contTitle = document.createTextNode(ele.question);
@@ -46,7 +46,7 @@ myQuestions.forEach( ele => {
     const contOption = document.createElement('div');
     const contInput = document.createElement('input');
     contInput.setAttribute("type", "radio");
-    contInput.setAttribute("name", "answer");
+    contInput.setAttribute("name", `group${index}`);
     const contText = document.createElement('label');
     const text = document.createTextNode(ele.answers[property]);
     contText.appendChild(text);
@@ -58,7 +58,7 @@ myQuestions.forEach( ele => {
 })
 
 function sendForm() {
-  
+  console.log(document.querySelector('quiz').value);
 }
 
 
