@@ -29,7 +29,6 @@ const myQuestions = [
   }
 ];
 
-const contQuest = document.getElementById('questions');
 const ulCont = document.getElementById('questionsList');
 
 myQuestions.forEach( (ele, index) => {
@@ -39,6 +38,7 @@ myQuestions.forEach( (ele, index) => {
   
   liElem.setAttribute('id', `liElem-${index}`);
   
+  // ApendChild
   selectElem.appendChild(contTitle);
   liElem.appendChild(selectElem);
   ulCont.appendChild(liElem);
@@ -58,6 +58,7 @@ myQuestions.forEach( (ele, index) => {
     contInput.setAttribute("id", `group${index}-${property}`);
     contText.setAttribute("for", `group${index}-${property}`);
     
+    // ApendChild
     contText.appendChild(text);
     contOption.appendChild(contInput);
     contOption.appendChild(contText);
@@ -75,7 +76,7 @@ function sendForm() {
     email: formElem.elements.emailAddress.value
   };
   
-  // Answer validation
+  // Get answer validation
   answerValidation(formElem);
   return false;
   
@@ -92,6 +93,3 @@ function answerValidation(formElem) {
     }
   });
 }
-
-
-
