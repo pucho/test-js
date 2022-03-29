@@ -7,6 +7,10 @@
   margin-bottom: 20px;
 }
 
+#questionsList li.error label{
+  color: #ff0000;
+}
+
 #questionsList li span {
   font-weight: bold;
 }

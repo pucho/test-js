@@ -37,6 +37,8 @@ myQuestions.forEach( (ele, index) => {
   const selectElem = document.createElement('span');
   const contTitle = document.createTextNode(ele.question);
   
+  liElem.setAttribute('id', `liElem-${index}`);
+  
   selectElem.appendChild(contTitle);
   liElem.appendChild(selectElem);
   ulCont.appendChild(liElem);
@@ -75,24 +77,20 @@ function sendForm() {
   
   // Answer validation
   answerValidation(formElem);
-  
-  console.log(formElem.elements.username.value);
-  console.log(formElem.elements.group0.value);
-    
   return false;
   
 }
 
 function answerValidation(formElem) {
   myQuestions.forEach( (ele, index) => {
+    
+    // Add or remove error class to li tag
     if(formElem.elements[`group${index}`].value !== ele.correctAnswer) {
-        
+      document.getElementById(`liElem-${index}`).classList.add('error');
+    } else {
+      document.getElementById(`liElem-${index}`).classList.remove('error');
     }
-    for (const property in ele.answers) {
-      
-    }
-  })
-
+  });
 }
 
 
