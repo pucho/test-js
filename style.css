@@ -1,5 +1,17 @@
 /* CSS files add styling rules to your content */
-input {
-  margin-right: 10px
+#questionsList {
+  list-style: none
+}
+
+#questionsList li {
+  margin-bottom: 20px;
+}
+
+#questionsList li span {
+  font-weight: bold;
+}
+
+#questionsList input {
+  margin-right: 10px;
 }
 

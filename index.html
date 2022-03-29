@@ -15,23 +15,22 @@
     <script src="/script.js" defer></script>
     
     <!-- import the webpage's css file -->
-    <link rel="stylesheet" href="/style.css"></link>
+    <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
     <div>
-<!--       <form id="quiz" method="get" name="formOptions" value="valuetest" onsubmit="sendForm()"> -->
       <form id="quiz" method="get" onsubmit="return sendForm()">
         <fieldset>
           <legend class="h1">Send your answers</legend>
           <div>
             <label for="username">Name</label>
-            <input id="username" required name="userName" maxlength="20" placeholder="" value="">
+            <input id="username" required name="userName" maxlength="20" placeholder="test" value="">
           </div>
         </fieldset>
         <fieldset>
           <div>
             <label for="emailAddress">Email address</label>
-            <input type="email" id="emailAddress" required name="emailAddress" placeholder="" value="">
+            <input type="email" id="emailAddress" required name="emailAddress" placeholder="test@test.com" value="">
           </div>
         </fieldset>
         <legend class="h2">Questions</legend>
@@ -41,7 +40,6 @@
           
         </div>
         <div>
-<!--           <button type="button" onclick="sendForm()">Send</button> -->
           <button type="submit">Send</button>
           <button type="button">Reset</button>
         </div>

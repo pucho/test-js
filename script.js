@@ -73,12 +73,17 @@ function sendForm() {
     email: formElem.elements.emailAddress.value
   };
   
-  // 
+  // Answer validation
+  answerValidation();
   
   console.log(formElem.elements.username.value);
   console.log(formElem.elements.group0.value);
     
   return false;
+  
+}
+
+function answerValidation() {
   
 }
 
