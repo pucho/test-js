@@ -95,3 +95,10 @@ function answerValidation(formElem) {
     }
   });
 }
+
+// Remove li class error 
+function removeErrorClass() {
+  myQuestions.forEach( (ele, index) => {
+    document.getElementById(`liElem-${index}`).classList.remove('error');
+  });
+}

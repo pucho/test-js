@@ -19,7 +19,7 @@
   </head>
   <body>
     <div>
-      <form id="quiz" method="get" onsubmit="return sendForm()">
+      <form id="quiz" method="post" onsubmit="return sendForm()">
         <fieldset>
           <legend class="h1">Send your answers</legend>
           <div>
@@ -41,7 +41,7 @@
         </div>
         <div>
           <button type="submit" class="btn btn-primary">Send</button>
-          <button type="reset" class="btn btn-secondary">Reset</button>
+          <button type="reset" class="btn btn-secondary" onclick="removeErrorClass()">Reset</button>
         </div>
       </form>
     </div>
