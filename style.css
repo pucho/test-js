@@ -1,6 +1,18 @@
 /* CSS files add styling rules to your content */
+#quiz {
+  width: 50%;
+}
+
+.h1,
+.h2 {
+  font-weight: bold;
+  margin-top: 25px
+}
+
 #questionsList {
-  list-style: none
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
 }
 
 #questionsList li {
