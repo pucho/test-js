@@ -61,7 +61,7 @@ myQuestions.forEach( (ele, index) => {
     contOption.appendChild(contText);
     liElem.appendChild(contOption);
   }
-})
+});
 
 // Get Form values on submit
 function sendForm() {
@@ -74,7 +74,7 @@ function sendForm() {
   };
   
   // Answer validation
-  answerValidation();
+  answerValidation(formElem);
   
   console.log(formElem.elements.username.value);
   console.log(formElem.elements.group0.value);
@@ -83,8 +83,16 @@ function sendForm() {
   
 }
 
-function answerValidation() {
-  
+function answerValidation(formElem) {
+  myQuestions.forEach( (ele, index) => {
+    if(formElem.elements[`group${index}`].value !== ele.correctAnswer) {
+        
+    }
+    for (const property in ele.answers) {
+      
+    }
+  })
+
 }
 
 
