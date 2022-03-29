@@ -66,6 +66,7 @@ myQuestions.forEach( (ele, index) => {
 function sendForm() {
   const formElem = document.forms.quiz;
   console.log(formElem.elements.username.value);
+  return false;
   
 }
 
