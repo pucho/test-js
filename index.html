@@ -16,7 +16,7 @@
   </head>
   <body>
     <div>
-      <form id="quiz" method="get">
+      <form id="quiz" method="get" name="formOptions" onsubmit="sendForm()">
         <fieldset>
           <legend class="h1">Send your answers</legend>
           <div>
@@ -37,7 +37,7 @@
           
         </div>
         <div>
-          <button type="button">Send</button>
+          <button type="submit">Send</button>
           <button type="button">Reset</button>
         </div>
       </form>

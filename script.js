@@ -38,6 +38,10 @@ myQuestions.forEach( ele => {
   const selectElem = document.createElement('span');
   const contTitle = document.createTextNode(ele.question);
   
+  selectElem.appendChild(contTitle);
+  liElem.appendChild(selectElem);
+  ulCont.appendChild(liElem);
+  
   for (const property in ele.answers) {
     const contOption = document.createElement('div');
     const contInput = document.createElement('input');
@@ -50,17 +54,12 @@ myQuestions.forEach( ele => {
     contOption.appendChild(contInput);
     contOption.appendChild(contText);
     liElem.appendChild(contOption);
-    
-     
   }
-
-  
-  
-  
-  selectElem.appendChild(contTitle);
-  liElem.appendChild(selectElem);
-  ulCont.appendChild(liElem);
 })
+
+function sendForm() {
+  
+}
 
 
 
