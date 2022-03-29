@@ -31,7 +31,6 @@ const myQuestions = [
 
 const contQuest = document.getElementById('questions');
 const ulCont = document.getElementById('questionsList');
-console.log('test');
 
 myQuestions.forEach( (ele, index) => {
   const liElem = document.createElement('li');
@@ -57,8 +56,9 @@ myQuestions.forEach( (ele, index) => {
   }
 })
 
-function sendForm() {
-  console.log(document.querySelector('quiz').value);
+function sendForm(event) {
+  console.log(event.target);
+  // console.log(document.querySelector('quiz').value);
 }
 
 
