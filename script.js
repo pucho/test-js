@@ -41,27 +41,32 @@ myQuestions.forEach( (ele, index) => {
   liElem.appendChild(selectElem);
   ulCont.appendChild(liElem);
   
+  // Loop on answers object
   for (const property in ele.answers) {
     const contOption = document.createElement('div');
     const contInput = document.createElement('input');
+    const contText = document.createElement('label');
+    const text = document.createTextNode(ele.answers[property]);
+    
+    // Set attributes on inputs elements and label
     contInput.setAttribute("type", "radio");
     contInput.setAttribute("name", `group${index}`);
     contInput.setAttribute("value", '');
-    const contText = document.createElement('label');
-    const text = document.createTextNode(ele.answers[property]);
-    contText.appendChild(text);
+    contInput.setAttribute("id", `group${index}-${property}`);
+    contText.setAttribute("for", `group${index}-${property}`);
     
+    contText.appendChild(text);
     contOption.appendChild(contInput);
     contOption.appendChild(contText);
     liElem.appendChild(contOption);
   }
 })
 
+// Get Form values on submit
 function sendForm() {
   const formElem = document.forms.quiz;
-  const formData = new FormData(formElem);
-  console.log(formData.get('name'));  
-  // console.log(document.querySelector('quiz').value);
+  console.log(formElem.elements.username.value);
+  
 }
 
 
