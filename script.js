@@ -46,12 +46,12 @@ myQuestions.forEach( (ele, index) => {
     const contOption = document.createElement('div');
     const contInput = document.createElement('input');
     const contText = document.createElement('label');
-    const text = document.createTextNode(ele.answers[property]);
+    const text = document.createTextNode(`${property}: ${ele.answers[property]}`);
     
     // Set attributes on inputs elements and label
     contInput.setAttribute("type", "radio");
     contInput.setAttribute("name", `group${index}`);
-    contInput.setAttribute("value", '');
+    contInput.setAttribute("value", property);
     contInput.setAttribute("id", `group${index}-${property}`);
     contText.setAttribute("for", `group${index}-${property}`);
     
