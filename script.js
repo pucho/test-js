@@ -59,8 +59,8 @@ myQuestions.forEach( (ele, index) => {
 
 function sendForm() {
   const formElem = document.forms.quiz;
-  console.log(formElem.);
-  console.log('test');
+  const formData = new FormData(formElem);
+  console.log(formData.get('name'));  
   // console.log(document.querySelector('quiz').value);
 }
 
