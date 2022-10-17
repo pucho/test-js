@@ -7,7 +7,6 @@ We'd like to create a new form to ask some questions to our frontend developers.
 3. Is there a security flaw?
 4. Bonus track: Show if the answer is valid or invalid adding some styles after submit.
 
-
 # Example Output
 
 Try to give similar style to this image:
