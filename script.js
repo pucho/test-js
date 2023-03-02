@@ -29,6 +29,29 @@ const myQuestions = [
   }
 ];
 
+const questionsContainer = document.querySelector("#questions")
+
+myQuestions.forEach(question => {
+  const questionNode = document.createElement("div");
+  const questionTitle = document.createElement("h2")
+  questionTitle
+  questionTitle.appendChild(document.createTextNode(question.question))
+  Object.
+//   question.answers(answer => {
+//     const newAnswer = `
+//       <input type="radio" id="${answer}" name="contact" value="email" />
+//       <label for="contactChoice1">Email</label>
+
+//       <input type="radio" id="contactChoice2" name="contact" value="phone" />
+//       <label for="contactChoice2">Phone</label>
+
+//       <input type="radio" id="contactChoice3" name="contact" value="mail" />
+//       <label for="contactChoice3">Mail</label>
+//   `
+//   })
+  
+})
+
 const form = document.querySelector("#quiz");
 console.log(form)
 form.addEventListener(
