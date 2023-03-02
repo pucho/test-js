@@ -16,7 +16,7 @@
   </head>
   <body>
     <div>
-      <form id="quiz" method="get">
+      <form id="quiz" method="post">
         <fieldset>
           <legend class="h1">Send your answers</legend>
           <div>
@@ -27,7 +27,7 @@
         <fieldset>
           <div>
             <label for="emailAddress">Email address</label>
-            <input id="emailAddress" placeholder="" value="">
+            <input id="emailAddress" placeholder="" value="" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
           </div>
         </fieldset>
         <legend class="h2">Questions</legend>

@@ -28,3 +28,17 @@ const myQuestions = [
     correctAnswer: "d"
   }
 ];
+
+const form = document.querySelector("form");
+
+form.addEventListener(
+  "submit",
+  (event) => {
+    event.preventDefault();
+    const formData = new FormData(form);
+    const data = Object.entries(formData)
+    console.log(data)
+    
+  },
+  false
+);
