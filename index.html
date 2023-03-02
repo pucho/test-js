@@ -21,20 +21,20 @@
           <legend class="h1">Send your answers</legend>
           <div>
             <label for="username">Name</label>
-            <input id="username" maxlength="20" placeholder="" value="">
+            <input id="username" name="username" maxlength="20" minlength="3" placeholder="Please enter your name" value="">
           </div>
         </fieldset>
         <fieldset>
           <div>
             <label for="emailAddress">Email address</label>
-            <input id="emailAddress" placeholder="" value="" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+            <input id="emailAddress" name="email" placeholder="Please enter your email" value="" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
           </div>
         </fieldset>
         <legend class="h2">Questions</legend>
         <div id="questions">
         </div>
         <div>
-          <button type="button">Send</button>
+          <button type="submit">Send</button>
           <button type="button">Reset</button>
         </div>
       </form>

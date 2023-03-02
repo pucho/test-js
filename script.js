@@ -29,16 +29,28 @@ const myQuestions = [
   }
 ];
 
-const form = document.querySelector("form");
-
+const form = document.querySelector("#quiz");
+console.log(form)
 form.addEventListener(
   "submit",
   (event) => {
     event.preventDefault();
     const formData = new FormData(form);
-    const data = Object.entries(formData)
-    console.log(data)
     
   },
   false
 );
+
+form.addEventListener("formdata", (e) => {
+  console.log("formdata fired");
+
+  // Get the form data from the event object
+  const data = e.formData;
+  console.log(data)
+  for (const value of data.values()) {
+    console.log(value);
+  }
+
+  // submit the data via XHR
+  
+});
