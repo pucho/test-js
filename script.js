@@ -4,18 +4,18 @@ const myQuestions = [
     answers: {
       a: "Douglas Crockford",
       b: "Sheryl Sandberg",
-      c: "Brendan Eich"
+      c: "Brendan Eich",
     },
-    correctAnswer: "c"
+    correctAnswer: "c",
   },
   {
     question: "Which one of these is a JavaScript package manager?",
     answers: {
       a: "Node.js",
       b: "TypeScript",
-      c: "npm"
+      c: "npm",
     },
-    correctAnswer: "c"
+    correctAnswer: "c",
   },
   {
     question: "Which tool can you use to ensure code quality?",
@@ -23,43 +23,40 @@ const myQuestions = [
       a: "Angular",
       b: "jQuery",
       c: "RequireJS",
-      d: "ESLint"
+      d: "ESLint",
     },
-    correctAnswer: "d"
-  }
+    correctAnswer: "d",
+  },
 ];
 
-const questionsContainer = document.querySelector("#questions")
+const questionsContainer = document.querySelector("#questions");
 
-myQuestions.forEach(question => {
+myQuestions.forEach((question) => {
   const questionNode = document.createElement("div");
-  const questionTitle = document.createElement("h2")
-  questionTitle
-  questionTitle.appendChild(document.createTextNode(question.question))
-  Object.
-//   question.answers(answer => {
-//     const newAnswer = `
-//       <input type="radio" id="${answer}" name="contact" value="email" />
-//       <label for="contactChoice1">Email</label>
-
-//       <input type="radio" id="contactChoice2" name="contact" value="phone" />
-//       <label for="contactChoice2">Phone</label>
-
-//       <input type="radio" id="contactChoice3" name="contact" value="mail" />
-//       <label for="contactChoice3">Mail</label>
-//   `
-//   })
-  
-})
+  const questionTitle = document.createElement("h4");
+  questionTitle.appendChild(document.createTextNode(question.question));
+  let answersHTML = ``;
+  for (const [key, value] of Object.entries(question.answers)) {
+    answersHTML += `
+    <li>
+      <input type="radio" id="${value}" name="${question.question}" value="${value}" required/>
+      <label for="${value}">${value}</label>
+    </li>
+    `;
+  }
+  console.log(answersHTML)
+  questionNode.innerHTML = answersHTML;
+  questionNode.prepend(questionTitle)
+  questionsContainer.appendChild(questionNode);
+});
 
 const form = document.querySelector("#quiz");
-console.log(form)
+console.log(form);
 form.addEventListener(
   "submit",
   (event) => {
     event.preventDefault();
     const formData = new FormData(form);
-    
   },
   false
 );
@@ -69,11 +66,10 @@ form.addEventListener("formdata", (e) => {
 
   // Get the form data from the event object
   const data = e.formData;
-  console.log(data)
+  console.log(data);
   for (const value of data.values()) {
     console.log(value);
   }
 
   // submit the data via XHR
-  
 });
