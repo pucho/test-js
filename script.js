@@ -59,10 +59,22 @@ form.addEventListener(
   (event) => {
     event.preventDefault();
     const formData = new FormData(form);
+    let elements = form.elements;
+    for (let i = 0, len = elements.length; i < len; ++i) {
+      if (elements[i].id !== "reset") elements[i].disabled = true;
+    }
     checkAnswers(formData);
   },
   false
 );
+
+form.addEventListener("reset", (event)=> {
+  event.preventDefault()
+  let elements = form.elements;
+    for (let i = 0, len = elements.length; i < len; ++i) {
+      elements[i].disabled = false;
+    }
+})
 
 form.addEventListener("formdata", (e) => {
   // Get the form data from the event object
@@ -79,7 +91,9 @@ function checkAnswers(formData) {
   for (let i = 0; i < myQuestions.length; i++) {
     let question = myQuestions[i];
     const selectedAnswer = formData.get(question.id);
-    const selectedAnswerKey = Object.keys(question.answers).find(key => question.answers[key] === selectedAnswer);
+    const selectedAnswerKey = Object.keys(question.answers).find(
+      (key) => question.answers[key] === selectedAnswer
+    );
     console.log(selectedAnswerKey);
     const isCorrect =
       selectedAnswer === question.answers[question.correctAnswer];
