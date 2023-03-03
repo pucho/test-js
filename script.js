@@ -74,15 +74,12 @@ form.addEventListener("reset", (event) => {
     elements[i].disabled = false;
     elements[i].classList.remove();
   }
+  
+  //This could be refactored into a func, probably not the most performant way to remove and add classes to the dom
   const correctCollection = document.getElementsByClassName("correct");
-  for (let i = 0; i <= correctCollection.length; i++) {
-    correctCollection[i].classList.remove("correct");
-  }
+  Array.from(correctCollection).forEach(el => el.classList.remove("correct"))
   const incorrectCollection = document.getElementsByClassName("incorrect");
-  for (let i = 0; i <= incorrectCollection.length; i++) {
-    console.log(i)
-    incorrectCollection[i].classList.remove("incorrect");
-  }
+  Array.from(incorrectCollection).forEach(el => el.classList.remove("incorrect"))
 });
 
 form.addEventListener("formdata", (e) => {
