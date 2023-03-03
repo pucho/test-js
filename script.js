@@ -75,13 +75,22 @@ form.addEventListener("formdata", (e) => {
 
 function checkAnswers(formData) {
   let correctAnswers = 0;
+  
+  for(let i = 0; i < myQuestions.length; i++ ) {
+    let question = myQuestions[i]; 
+    const selectedAnswer = formData.get(question.id);
+    console.log(formData)
+    const isCorrect = selectedAnswer === question.answers[question.correctAnswer];
+    console.log(isCorrect)
+    // const answerNode = document.querySelector(`${}-{}`)
+  }
 
   myQuestions.forEach((question) => {
     const answerKey = `answer-${question.id}`;
     const selectedAnswer = formData.get(question.id);
     const isCorrect = selectedAnswer === question.correctAnswer;
     const answerNodes = document.getElementsByName(answerKey);
-console.log(answerKey)
+    console.log(answerKey)
     answerNodes.forEach((node) => {
       console.log(node.value)
       console.log(selectedAnswer)
