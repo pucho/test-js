@@ -58,16 +58,27 @@ form.addEventListener(
   "submit",
   (event) => {
     event.preventDefault();
-    const formData = new FormData(form);
+    checkAnswers();
   },
   false
 );
 
-form.addEventListener("formdata", (e) => {
-  // Get the form data from the event object
-  const data = e.formData;
-  console.log(data);
-  for (const value of data.values()) {
-    console.log(value);
-  }
-});
+function checkAnswers() {
+  const formData = new FormData(form);
+  let correctAnswers = 0;
+  let incorrectAnswers = 0;
+
+  myQuestions.forEach(question => {
+    const answerElement = document.getElementById(question.id.toString() + '-' + question.id);
+console.log(answerElement)
+    if (selectedAnswer === question.correctAnswer) {
+      answerElement.parentElement.classList.add('correct-answer');
+      correctAnswers++;
+    } else {
+      answerElement.parentElement.classList.add('incorrect-answer');
+      incorrectAnswers++;
+    }
+  })
+
+  console.log(`Correct answers: ${correctAnswers}, Incorrect answers: ${incorrectAnswers}`);
+}
