@@ -74,19 +74,38 @@ form.addEventListener("formdata", (e) => {
 });
 
 function checkAnswers(formData) {
-  let numCorrect = 0;
-  for (const [key, value] of formData.entries()) {
-    const questionId = key;
-    const answerId = value;
-    const selectedAnswer = document.querySelector(`input[id=${answerId}-${questionId}]`);
-    if (selectedAnswer.dataset.answer === answerId) {
-      selectedAnswer.parentElement.style.color = "green";
-      numCorrect++;
-    } else {
-      selectedAnswer.parentElement.style.color = "red";
-    }
-  }
-  console.log(`Number of correct answers: ${numCorrect}`);
+  let correctAnswers = 0;
+
+  myQuestions.forEach((question) => {
+    const answerKey = `answer-${question.id}`;
+    const selectedAnswer = formData.get(question.id);
+    const isCorrect = selectedAnswer === question.correctAnswer;
+    const answerNodes = document.getElementsByName(answerKey);
+console.log(answerKey)
+    answerNodes.forEach((node) => {
+      console.log(node.value)
+      console.log(selectedAnswer)
+      if (node.value === selectedAnswer) {
+        if (isCorrect) {
+          node.parentElement.style.color = "green";
+          correctAnswers++;
+        } else {
+          node.parentElement.style.color = "red";
+        }
+      } else if (node.value === question.correctAnswer) {
+        node.parentElement.style.color = "green";
+      }
+      node.disabled = true;
+    });
+  });
+
+  console.log(`You got ${correctAnswers} out of ${myQuestions.length} correct!`);
 }
+
+
+
+
+
+
 
 
