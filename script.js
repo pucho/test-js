@@ -58,27 +58,35 @@ form.addEventListener(
   "submit",
   (event) => {
     event.preventDefault();
-    checkAnswers();
+    const formData = new FormData(form);
+    checkAnswers(formData)
   },
   false
 );
 
-function checkAnswers() {
-  const formData = new FormData(form);
-  let correctAnswers = 0;
-  let incorrectAnswers = 0;
+form.addEventListener("formdata", (e) => {
+  // Get the form data from the event object
+  const data = e.formData;
+  console.log(data);
+  for (const value of data.values()) {
+    console.log(value);
+  }
+});
 
-  myQuestions.forEach(question => {
-    const answerElement = document.getElementById(question.id.toString() + '-' + question.id);
-console.log(answerElement)
-    if (selectedAnswer === question.correctAnswer) {
-      answerElement.parentElement.classList.add('correct-answer');
-      correctAnswers++;
+function checkAnswers(formData) {
+  let numCorrect = 0;
+  for (const [key, value] of formData.entries()) {
+    const questionId = key;
+    const answerId = value;
+    const selectedAnswer = document.querySelector(`input[id=${answerId}-${questionId}]`);
+    if (selectedAnswer.dataset.answer === answerId) {
+      selectedAnswer.parentElement.style.color = "green";
+      numCorrect++;
     } else {
-      answerElement.parentElement.classList.add('incorrect-answer');
-      incorrectAnswers++;
+      selectedAnswer.parentElement.style.color = "red";
     }
-  })
-
-  console.log(`Correct answers: ${correctAnswers}, Incorrect answers: ${incorrectAnswers}`);
+  }
+  console.log(`Number of correct answers: ${numCorrect}`);
 }
+
+
