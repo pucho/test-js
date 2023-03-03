@@ -49,7 +49,7 @@ myQuestions.forEach((question, index) => {
     `;
   }
   questionNode.innerHTML = answersHTML;
-  questionNode.prepend(questionTitle)
+  questionNode.prepend(questionTitle);
   questionsContainer.appendChild(questionNode);
 });
 
@@ -59,7 +59,7 @@ form.addEventListener(
   (event) => {
     event.preventDefault();
     const formData = new FormData(form);
-    checkAnswers(formData)
+    checkAnswers(formData);
   },
   false
 );
@@ -75,46 +75,18 @@ form.addEventListener("formdata", (e) => {
 
 function checkAnswers(formData) {
   let correctAnswers = 0;
-  
-  for(let i = 0; i < myQuestions.length; i++ ) {
-    let question = myQuestions[i]; 
+
+  for (let i = 0; i < myQuestions.length; i++) {
+    let question = myQuestions[i];
     const selectedAnswer = formData.get(question.id);
-    console.log(formData)
-    const isCorrect = selectedAnswer === question.answers[question.correctAnswer];
-    console.log(isCorrect)
-    // const answerNode = document.querySelector(`${}-{}`)
+    const selectedAnswerKey = Object.keys(question.answers).find(key => question.answers[key] === selectedAnswer);
+    console.log(selectedAnswerKey);
+    const isCorrect =
+      selectedAnswer === question.answers[question.correctAnswer];
+    console.log(isCorrect);
+    const answerNode = document.querySelector(
+      `#${selectedAnswerKey}-${question.id}`
+    );
+    answerNode.parentElement.style.color = isCorrect ? "green" : "red";
   }
-
-  myQuestions.forEach((question) => {
-    const answerKey = `answer-${question.id}`;
-    const selectedAnswer = formData.get(question.id);
-    const isCorrect = selectedAnswer === question.correctAnswer;
-    const answerNodes = document.getElementsByName(answerKey);
-    console.log(answerKey)
-    answerNodes.forEach((node) => {
-      console.log(node.value)
-      console.log(selectedAnswer)
-      if (node.value === selectedAnswer) {
-        if (isCorrect) {
-          node.parentElement.style.color = "green";
-          correctAnswers++;
-        } else {
-          node.parentElement.style.color = "red";
-        }
-      } else if (node.value === question.correctAnswer) {
-        node.parentElement.style.color = "green";
-      }
-      node.disabled = true;
-    });
-  });
-
-  console.log(`You got ${correctAnswers} out of ${myQuestions.length} correct!`);
 }
-
-
-
-
-
-
-
-
