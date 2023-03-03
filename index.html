@@ -15,27 +15,29 @@
     <script src="./script.js" defer></script>
   </head>
   <body>
-    <div>
+    <div class="container">
       <form id="quiz" method="post">
-        <fieldset>
+        <div id="user-data-container">
+          <fieldset>
           <legend class="h1">Send your answers</legend>
-          <div>
+          <div class="text-input-container">
             <label for="username">Name</label>
             <input id="username" name="username" maxlength="20" minlength="3" placeholder="Please enter your name" value="" required>
           </div>
         </fieldset>
         <fieldset>
-          <div>
+          <div class="text-input-container">
             <label for="emailAddress">Email address</label>
             <input id="emailAddress" name="email" placeholder="Please enter your email" value="" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
           </div>
         </fieldset>
+        </div>
         <legend class="h2">Questions</legend>
         <div id="questions">
         </div>
         <div>
-          <button type="submit">Send</button>
-          <button type="reset">Reset</button>
+          <button type="submit" class="btn btn-primary">Send</button>
+          <button type="reset" class="btn btn-secondary">Reset</button>
         </div>
       </form>
     </div>

@@ -36,12 +36,13 @@ const questionsContainer = document.querySelector("#questions");
 
 myQuestions.forEach((question, index) => {
   const questionNode = document.createElement("ul");
-  const questionTitle = document.createElement("h4");
+  const questionTitle = document.createElement("h3");
+  questionTitle.classList.add("question-title");
   questionTitle.appendChild(document.createTextNode(question.question));
   let answersHTML = ``;
   for (const [key, value] of Object.entries(question.answers)) {
     answersHTML += `
-    <li>
+    <li class="list-item">
       <input type="radio" id="${key}-${question.id}" name="${question.id}" value="${value}" required/>
       <label for="${value}">${value}</label>
     </li>

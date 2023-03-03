@@ -1,0 +1,21 @@
+.list-item {
+  list-style: none;
+}
+
+.text-input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+#user-data-container {
+  margin-bottom: 25px;
+}
+
+.question-title {
+  font-size: 1.25rem;
+}
