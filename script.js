@@ -72,10 +72,17 @@ form.addEventListener("reset", (event) => {
   let elements = form.elements;
   for (let i = 0; i < elements.length; ++i) {
     elements[i].disabled = false;
-    elements[i].classList.remove()
+    elements[i].classList.remove();
   }
-  document.querySelectorAll(".correct");
-  document.querySelectorAll(".incorrect");
+  const correctCollection = document.getElementsByClassName("correct");
+  for (let i = 0; i <= correctCollection.length; i++) {
+    correctCollection[i].classList.remove("correct");
+  }
+  const incorrectCollection = document.getElementsByClassName("incorrect");
+  for (let i = 0; i <= incorrectCollection.length; i++) {
+    console.log(i)
+    incorrectCollection[i].classList.remove("incorrect");
+  }
 });
 
 form.addEventListener("formdata", (e) => {
@@ -93,18 +100,18 @@ function checkAnswers(formData) {
   for (let i = 0; i < myQuestions.length; i++) {
     let question = myQuestions[i];
     const selectedAnswer = formData.get(question.id);
-   
+
     const selectedAnswerKey = Object.keys(question.answers).find(
       (key) => question.answers[key] === selectedAnswer
     );
-    
+
     const isCorrect =
       selectedAnswer === question.answers[question.correctAnswer];
-    
+
     const answerNode = document.querySelector(
       `#${selectedAnswerKey}-${question.id}`
     );
-    
-    answerNode.parentElement.classList.add(isCorrect ? "correct" : "incorrect")
+
+    answerNode.parentElement.classList.add(isCorrect ? "correct" : "incorrect");
   }
 }
