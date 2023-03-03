@@ -60,7 +60,7 @@ form.addEventListener(
     event.preventDefault();
     const formData = new FormData(form);
     let elements = form.elements;
-    for (let i = 0, len = elements.length; i < len; ++i) {
+    for (let i = 0; i < elements.length; ++i) {
       if (elements[i].id !== "reset") elements[i].disabled = true;
     }
     checkAnswers(formData);
@@ -68,13 +68,15 @@ form.addEventListener(
   false
 );
 
-form.addEventListener("reset", (event)=> {
-  event.preventDefault()
+form.addEventListener("reset", (event) => {
   let elements = form.elements;
-    for (let i = 0, len = elements.length; i < len; ++i) {
-      elements[i].disabled = false;
-    }
-})
+  for (let i = 0; i < elements.length; ++i) {
+    elements[i].disabled = false;
+    elements[i].classList.remove()
+  }
+  document.querySelectorAll(".correct");
+  document.querySelectorAll(".incorrect");
+});
 
 form.addEventListener("formdata", (e) => {
   // Get the form data from the event object
@@ -91,16 +93,18 @@ function checkAnswers(formData) {
   for (let i = 0; i < myQuestions.length; i++) {
     let question = myQuestions[i];
     const selectedAnswer = formData.get(question.id);
+   
     const selectedAnswerKey = Object.keys(question.answers).find(
       (key) => question.answers[key] === selectedAnswer
     );
-    console.log(selectedAnswerKey);
+    
     const isCorrect =
       selectedAnswer === question.answers[question.correctAnswer];
-    console.log(isCorrect);
+    
     const answerNode = document.querySelector(
       `#${selectedAnswerKey}-${question.id}`
     );
-    answerNode.parentElement.style.color = isCorrect ? "green" : "red";
+    
+    answerNode.parentElement.classList.add(isCorrect ? "correct" : "incorrect")
   }
 }

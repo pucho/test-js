@@ -19,3 +19,11 @@
 .question-title {
   font-size: 1.25rem;
 }
+
+.correct {
+  color: green;
+}
+
+.incorrect {
+  color: red;
+}
